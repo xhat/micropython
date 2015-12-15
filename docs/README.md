@@ -1,4 +1,4 @@
-MicroPython Documentation
+MicroPython 中文文档
 =========================
 
 The MicroPython documentation can be found at:
