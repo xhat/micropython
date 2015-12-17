@@ -1,17 +1,16 @@
 {% extends "defindex.html" %}
 {% block body %}
 
-  <h1>MicroPython documentation</h1>
+  <h1>MicroPython 中文文档</h1>
 
   <p>
-    {{ _('Welcome! This is the documentation for MicroPython') }}
-    v{{ release|e }}{% if last_updated %}, {{ _('last updated') }} {{ last_updated|e }}{% endif %}.
+    {{ _('欢迎使用MicroPython') }}
+    v{{ release|e }}{% if last_updated %}, {{ _('最后更新') }} {{ last_updated|e }}{% endif %}.
   </p>
 
   <p>
-    MicroPython runs on a variety of systems and each has their own specific
-    documentation.  You are currently viewing the documentation for
-    <strong>{{ port_name }}</strong>.
+    MicroPython 对不同平台有不同的文档支持，您现在看到的是
+    <strong>{{ port_name }}</strong> 版本
   </p>
 
   <!--p>
@@ -21,92 +20,89 @@
     {% endfor %}.
   </p-->
 
-  <p><strong>Documentation for MicroPython and {{ port_name }}:</strong></p>
+  <p><strong>MicroPython 和 {{ port_name }} 的中文文档：</strong></p>
 
   <table class="contentstable"><tr>
     <td width="40%" style="padding-left:2em;">
       {% if port == "pyboard" or port == "wipy" %}
         <p class="biglink">
-          <a class="biglink" href="{{ pathto(port + "/quickref") }}">Quick reference for {{ port_name }}</a><br/>
-          <span class="linkdescr">pinout for {{ port_name }} and snippets of useful code</span>
+          <a class="biglink" href="{{ pathto(port + "/quickref") }}">{{ port_name }}快速参考</a><br/>
+          <span class="linkdescr">{{ port_name }} 针脚示例图和部分代码示例</span>
         </p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto(port + "/general") }}">General information about {{ port_name }}</a><br/>
-          <span class="linkdescr">read this first for a quick overview</span>
+          <a class="biglink" href="{{ pathto(port + "/general") }}">{{ port_name }}常规信息</a><br/>
+          <span class="linkdescr">通过手册阅读让您快速概览{{ port_name }}的信息</span>
         </p>
         <p class="biglink">
-          <a class="biglink" href="{{ pathto(port + "/tutorial/index") }}">Tutorials and code examples</a><br/>
-          <span class="linkdescr">start here</span>
+          <a class="biglink" href="{{ pathto(port + "/tutorial/index") }}">入门指引</a><br/>
+          <span class="linkdescr">从这里开始你的{{ port_name }}之旅</span>
         </p>
       {% endif %}
       <p class="biglink">
-        <a class="biglink" href="{{ pathto("library/index") }}">Library Reference</a><br/>
+        <a class="biglink" href="{{ pathto("library/index") }}">类库信息</a><br/>
         {% if port == "wipy" %}
           <span class="linkdescr">MicroPython libraries, including the <a href="{{ pathto("library/machine") }}">machine module</a></span>
         {% else %}
-          <span class="linkdescr">MicroPython libraries, including the <a href="{{ pathto("library/pyb") }}">pyb module</a></span>
+          <span class="linkdescr">MicroPython 包含的库和模块，当然比较重要的是<a href="{{ pathto("library/pyb") }}">pyb module</a></span>
         {% endif %}
       </p>
     </td>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-        <a class="biglink" href="{{ pathto("reference/index") }}">Language Reference</a><br/>
-        <span class="linkdescr">information about MicroPython specific language features</span>
+        <a class="biglink" href="{{ pathto("reference/index") }}">语法参考</a><br/>
+        <span class="linkdescr">MicroPython 语法规则</span>
       </p>
       {% if port == "pyboard" %}
         <p class="biglink">
-            <a class="biglink" href="{{ pathto(port + "/hardware/index") }}">The {{ port }} hardware</a><br/>
-            <span class="linkdescr">schematics, dimensions and component datasheets</span>
+            <a class="biglink" href="{{ pathto(port + "/hardware/index") }}">{{ port }}硬件参考</a><br/>
+            <span class="linkdescr">硬件部分：原理图、尺寸、datasheets</span>
         </p>
         <p class="biglink">
-            <a class="biglink" href="http://micropython.org/resources/Micro-Python-Windows-setup.pdf">Guide for {{ port_name }} on Windows (PDF)</a><br/>
-            <span class="linkdescr">including DFU programming</span>
+            <a class="biglink" href="http://micropython.org/resources/Micro-Python-Windows-setup.pdf">{{ port_name }} windows 使用向导</a><br/>
+            <span class="linkdescr">包含 DFU 编程</span>
         </p>
       {% endif %}
       <p class="biglink">
-        <a class="biglink" href="{{ pathto("license") }}">License</a><br/>
-        <span class="linkdescr">MicroPython license information</span>
+        <a class="biglink" href="{{ pathto("license") }}">授权</a><br/>
+        <span class="linkdescr">MicroPython 授权信息</span>
       </p>
     </td>
   </tr></table>
 
-  <p><strong>Indices and tables:</strong></p>
+  <p><strong>索引和图标</strong></p>
   <table class="contentstable"><tr>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-        <a class="biglink" href="{{ pathto("py-modindex") }}">Module index</a><br/>
-        <span class="linkdescr">quick access to all modules</span>
+        <a class="biglink" href="{{ pathto("py-modindex") }}">模块列表</a><br/>
+        <span class="linkdescr">所有模块列表详细资料</span>
       </p>
       <p class="biglink">
-        <a class="biglink" href="{{ pathto("genindex") }}">Full index</a><br/>
-        <span class="linkdescr">all functions, classes, constants</span>
+        <a class="biglink" href="{{ pathto("genindex") }}">函数索引</a><br/>
+        <span class="linkdescr">所有的函数、类、构析函数</span>
       </p>
     </td>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-        <a class="biglink" href="{{ pathto(port + "_contents") }}">Table of contents</a><br/>
-        <span class="linkdescr">a list of all sections and subsections</span>
+        <a class="biglink" href="{{ pathto(port + "_contents") }}">所有列表</a><br/>
+        <span class="linkdescr">整体内容目录</span>
       </p>
     </td></tr>
   </table>
 
-  <p><strong>External links:</strong></p>
+  <p><strong>扩展阅读：</strong></p>
 
   <table class="contentstable"><tr>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-      <a class="biglink" href="http://micropython.org">MicroPython homepage</a><br/>
-        <span class="linkdescr">the official MicroPython site</span>
+      <a class="biglink" href="http://micropython.org">MicroPython 官网</a><br/>
       </p>
       <p class="biglink">
-        <a class="biglink" href="http://forum.micropython.org">MicroPython forum</a><br/>
-        <span class="linkdescr">community discussion for all things related to MicroPython</span>
+        <a class="biglink" href="http://forum.micropython.org">MicroPython 官方论坛</a><br/>
       </p>
     </td>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-        <a class="biglink" href="https://github.com/micropython">MicroPython on GitHub</a><br/>
-        <span class="linkdescr">contribute to the source code on GitHub</span>
+        <a class="biglink" href="https://github.com/micropython">MicroPython GitHub 地址</a><br/>
       </p>
       {% if port == "wipy" %}
         <p class="biglink">

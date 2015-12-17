@@ -1,20 +1,20 @@
-MicroPython libraries
+MicroPython 类库
 =====================
 
-Functionality specific to the MicroPython implementation is available in
-the following library.
+MicroPython库
+-------------------------
+具体实现见以下描述
 
 .. toctree::
    :maxdepth: 1
 
    micropython.rst
 
-Python standard libraries
+Python标准库
 -------------------------
 
-The following standard Python libraries are built in to MicroPython.
-
-For additional libraries, please download them from the `micropython-lib repository
+以下是内置Python标准库
+附加库请查看 `micropython-lib repository
 <https://github.com/micropython/micropython-lib>`_.
 
 .. only:: port_unix
@@ -55,21 +55,15 @@ For additional libraries, please download them from the `micropython-lib reposit
        sys.rst
        time.rst
 
-Python micro-libraries
+Python 微型库
 ----------------------
 
-The following standard Python libraries have been "micro-ified" to fit in with
-the philosophy of MicroPython.  They provide the core functionality of that
-module and are intended to be a drop-in replacement for the standard Python
-library.
+以下是专为micropython设计的微型库以替代标准库
 
 .. only:: not port_unix
 
-    The modules are available by their u-name, and also by their non-u-name.  The
-    non-u-name can be overridden by a file of that name in your package path.
-    For example, ``import json`` will first search for a file ``json.py`` or
-    directory ``json`` and load that package if it is found.  If nothing is found,
-    it will fallback to loading the built-in ``ujson`` module.
+    微型库可以被重写。例如自带模块json，当import json时，系统会先寻找json.py，
+    然后尝试需找目录json，最后才寻找json包，如果什么都没找到则启用该微型库ujson。
 
 .. only:: port_pyboard or port_unix
 
@@ -87,10 +81,8 @@ library.
 
 .. only:: port_pyboard
 
-   Libraries specific to the pyboard
+   Pyboard特定函数
    ---------------------------------
-
-   The following libraries are specific to the pyboard.
 
    .. toctree::
       :maxdepth: 2

@@ -1,4 +1,4 @@
-MicroPython documentation and references
+MicroPython 用户手册
 ========================================
 
 .. toctree::

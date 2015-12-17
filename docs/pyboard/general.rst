@@ -1,62 +1,46 @@
-General information about the pyboard
+Pyboard 系统信息
 =====================================
 
-Local filesystem and SD card
+文件系统和SD卡
 ----------------------------
 
-There is a small internal filesystem (a drive) on the pyboard, called ``/flash``,
-which is stored within the microcontroller's flash memory.  If a micro SD card
-is inserted into the slot, it is available as ``/sd``.
+pyboard上有一个很小的文件系统 ``/flash`` 如果插上sd卡，那么sd卡的目录为 ``/sd``
 
-When the pyboard boots up, it needs to choose a filesystem to boot from.  If
-there is no SD card, then it uses the internal filesystem ``/flash`` as the boot
-filesystem, otherwise, it uses the SD card ``/sd``.
+当pyboard启动时，它会选择一个文件系统启动，如果没有sd卡那么就随 ``/flash`` 启动
+如果有sd卡，那么随 ``/sd`` 启动
 
-(Note that on older versions of the board, ``/flash`` is called ``0:/`` and ``/sd``
-is called ``1:/``).
+(注意旧版本的 ``/flash`` 称作 ``0:/`` ， ``/sd``称作``1:/``)
 
-The boot filesystem is used for 2 things: it is the filesystem from which
-the ``boot.py`` and ``main.py`` files are searched for, and it is the filesystem
-which is made available on your PC over the USB cable.
+文件系统做两件事：
+1.找到 ``boot.py`` 和 ``main.py``
+2.同时作为pc端的usb设备
 
-The filesystem will be available as a USB flash drive on your PC.  You can
-save files to the drive, and edit ``boot.py`` and ``main.py``.
+这样就可以通过usb连接flash进行文件的编辑了
 
-*Remember to eject (on Linux, unmount) the USB drive before you reset your
-pyboard.*
+*注意在不用时记得先弹出你的设备，然后再reset*
 
-Boot modes
+启动模式
 ----------
 
-If you power up normally, or press the reset button, the pyboard will boot
-into standard mode: the ``boot.py`` file will be executed first, then the
-USB will be configured, then ``main.py`` will run.
+如果加电正常启动，或者按reset按键，pyb将进入标准模式：
+``boot.py``先被执行，随后usb驱动被配置，最后``main.py``被执行 
 
-You can override this boot sequence by holding down the user switch as
-the board is booting up.  Hold down user switch and press reset, and then
-as you continue to hold the user switch, the LEDs will count in binary.
-When the LEDs have reached the mode you want, let go of the user switch,
-the LEDs for the selected mode will flash quickly, and the board will boot.
+按住reset键不松开，然后按用户键通过led灯来指示切换的模式，led以二进制显示
 
-The modes are:
+模式列表：
 
-1. Green LED only, *standard boot*: run ``boot.py`` then ``main.py``.
-2. Orange LED only, *safe boot*: don't run any scripts on boot-up.
-3. Green and orange LED together, *filesystem reset*: resets the flash
-   filesystem to its factory state, then boots in safe mode.
+1. 只绿灯亮，*标准模式*: 首先运行 ``boot.py`` 然后运行 ``main.py``
+2. 只亮黄色，*安全模式*: 不运行任何flash里面的文件
+3. 黄绿一起亮，*文件系统重置*: 出厂设置，然后启动到安全模式
 
-If your filesystem becomes corrupt, boot into mode 3 to fix it.
-If resetting the filesystem while plugged into your compute doesn't work,
-you can try doing the same procedure while the board is plugged into a USB
-charger, or other USB power supply without data connection.
+如果你的文件系统出错，采用模式3进行修复。
+如果初始化后插入电脑不被识别，请直连usb充电器开机。
 
-Errors: flashing LEDs
+通过LED提示错误
 ---------------------
 
-There are currently 2 kinds of errors that you might see:
+有两种的错误信息类型：
 
-1. If the red and green LEDs flash alternatively, then a Python script
-    (eg ``main.py``) has an error.  Use the REPL to debug it.
-2. If all 4 LEDs cycle on and off slowly, then there was a hard fault.
-   This cannot be recovered from and you need to do a hard reset.
+1. 红绿led交替闪烁，说明.py后缀的文件出现语法错误
+2. 4个led周期性的亮灭，说明硬件故障，需要硬件重置
 

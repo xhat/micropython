@@ -1,16 +1,16 @@
 .. _quickref:
 
-Quick reference for the pyboard
+快速指南
 ===============================
 
 .. image:: http://micropython.org/resources/pybv10-pinout.jpg
     :alt: PYBv1.0 pinout
     :width: 700px
 
-General board control
+电路板控制
 ---------------------
 
-See :mod:`pyb`. ::
+请查看 :mod:`pyb`. ::
 
     import pyb
 
@@ -22,10 +22,10 @@ See :mod:`pyb`. ::
     pyb.freq(60000000) # set CPU freq to 60MHz
     pyb.stop() # stop CPU, waiting for external interrupt
 
-LEDs
-----
+LED灯
+-----
 
-See :ref:`pyb.LED <pyb.LED>`. ::
+请查看 :ref:`pyb.LED <pyb.LED>`. ::
 
     from pyb import LED
 
@@ -34,10 +34,10 @@ See :ref:`pyb.LED <pyb.LED>`. ::
     led.on()
     led.off()
 
-Pins and GPIO
+针脚和gpio
 -------------
 
-See :ref:`pyb.Pin <pyb.Pin>`. ::
+请查看 :ref:`pyb.Pin <pyb.Pin>`. ::
 
     from pyb import Pin
 
@@ -48,10 +48,10 @@ See :ref:`pyb.Pin <pyb.Pin>`. ::
     p_in = Pin('X2', Pin.IN, Pin.PULL_UP)
     p_in.value() # get value, 0 or 1
 
-Servo control
+servo控制
 -------------
 
-See :ref:`pyb.Servo <pyb.Servo>`. ::
+请查看 :ref:`pyb.Servo <pyb.Servo>`. ::
 
     from pyb import Servo
 
@@ -60,20 +60,20 @@ See :ref:`pyb.Servo <pyb.Servo>`. ::
     s1.angle(-60, 1500) # move to -60 degrees in 1500ms
     s1.speed(50) # for continuous rotation servos
 
-External interrupts
+外部中断
 -------------------
 
-See :ref:`pyb.ExtInt <pyb.ExtInt>`. ::
+请查看 :ref:`pyb.ExtInt <pyb.ExtInt>`. ::
 
     from pyb import Pin, ExtInt
 
     callback = lambda e: print("intr")
     ext = ExtInt(Pin('Y1'), ExtInt.IRQ_RISING, Pin.PULL_NONE, callback)
 
-Timers
+计时器
 ------
 
-See :ref:`pyb.Timer <pyb.Timer>`. ::
+请查看 :ref:`pyb.Timer <pyb.Timer>`. ::
 
     from pyb import Timer
 
@@ -82,10 +82,10 @@ See :ref:`pyb.Timer <pyb.Timer>`. ::
     tim.freq(0.5) # 0.5 Hz
     tim.callback(lambda t: pyb.LED(1).toggle())
 
-PWM (pulse width modulation)
+pwm
 ----------------------------
 
-See :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.Timer <pyb.Timer>`. ::
+请查看 :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.Timer <pyb.Timer>`. ::
 
     from pyb import Pin, Timer
 
@@ -94,30 +94,30 @@ See :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.Timer <pyb.Timer>`. ::
     ch = tim.channel(1, Timer.PWM, pin=p)
     ch.pulse_width_percent(50)
 
-ADC (analog to digital conversion)
+ADC数模转换
 ----------------------------------
 
-See :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.ADC <pyb.ADC>`. ::
+请查看 :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.ADC <pyb.ADC>`. ::
 
     from pyb import Pin, ADC
 
     adc = ADC(Pin('X19'))
     adc.read() # read value, 0-4095
 
-DAC (digital to analog conversion)
+DAC数模转换
 ----------------------------------
 
-See :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.DAC <pyb.DAC>`. ::
+请查看 :ref:`pyb.Pin <pyb.Pin>` and :ref:`pyb.DAC <pyb.DAC>`. ::
 
     from pyb import Pin, DAC
 
     dac = DAC(Pin('X5'))
     dac.write(120) # output between 0 and 255
 
-UART (serial bus)
+UART接口
 -----------------
 
-See :ref:`pyb.UART <pyb.UART>`. ::
+请查看 :ref:`pyb.UART <pyb.UART>`. ::
 
     from pyb import UART
 
@@ -125,10 +125,10 @@ See :ref:`pyb.UART <pyb.UART>`. ::
     uart.write('hello')
     uart.read(5) # read up to 5 bytes
 
-SPI bus
+SPI接口
 -------
 
-See :ref:`pyb.SPI <pyb.SPI>`. ::
+请查看 :ref:`pyb.SPI <pyb.SPI>`. ::
 
     from pyb import SPI
 
@@ -137,10 +137,10 @@ See :ref:`pyb.SPI <pyb.SPI>`. ::
     spi.recv(5) # receive 5 bytes on the bus
     spi.send_recv('hello') # send a receive 5 bytes
 
-I2C bus
+I2C接口
 -------
 
-See :ref:`pyb.I2C <pyb.I2C>`. ::
+请查看 :ref:`pyb.I2C <pyb.I2C>`. ::
 
     from pyb import I2C
 

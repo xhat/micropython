@@ -1,6 +1,6 @@
 .. _tutorial-index:
 
-MicroPython tutorial
+MicroPython 使用教程
 ====================
 
 This tutorial is intended to get you started with your pyboard.
@@ -24,7 +24,7 @@ the tutorial through in the order below.
    assembler.rst
    power_ctrl.rst
 
-Tutorials requiring extra components
+组件教程
 ------------------------------------
 
 .. toctree::
@@ -36,7 +36,7 @@ Tutorials requiring extra components
    lcd_skin.rst
    amp_skin.rst
 
-Tips, tricks and useful things to know
+需要注意的问题
 --------------------------------------
 
 .. toctree::
