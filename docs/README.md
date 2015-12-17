@@ -1,28 +1,20 @@
 MicroPython 中文文档
 =========================
 
-The MicroPython documentation can be found at:
-http://docs.micropython.org/en/latest/
+在线：
+http://www.pyboard.cn/docs/zh_cn
 
-The documentation you see there is generated from the files in the docs tree:
-https://github.com/micropython/micropython/tree/master/docs
+生成本地文档
+------------
 
-Building the documentation locally
-----------------------------------
-
-If you're making changes to the documentation, you may want to build the
-documentation locally so that you can preview your changes.
-
-Install Sphinx, and optionally (for the RTD-styling), sphinx_rtd_theme,
-preferably in a virtualenv:
+安装 Sphinx
 
      pip install sphinx
-     pip install sphinx_rtd_theme
 
-In `micropython/docs`, build the docs:
+在目录 `micropython/docs` 执行
 
     make MICROPY_PORT=<port_name> BUILDDIR=build/<port_name> html
 
-Where `<port_name>` can be `unix`, `pyboard`, `wipy` or `esp8266`.
+`<port_name>` 可选值 `unix` `pyboard` `wipy` `esp8266`
 
-You'll find the index page at `micropython/docs/build/<port_name>/html/index.html`.
+最终文档生成在 `micropython/docs/build/<port_name>/html/index.html`.
