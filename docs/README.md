@@ -2,7 +2,7 @@ MicroPython 中文文档
 =========================
 
 在线：
-http://www.pyboard.cn/docs/zh_cn
+http://micropython.popfeng.com/pyboard
 
 生成本地文档
 ------------
